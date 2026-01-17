@@ -208,11 +208,13 @@ export const translations: Record<'en' | 'or', TranslationData> = {
             },
             images: [
                 { alt: "Formal wear at a special event", categoryKey: "formal" },
+                { alt: "Outdoor photo with sunglasses", categoryKey: "lifestyle" },
                 { alt: "Professional look in formal suit", categoryKey: "formal" },
                 { alt: "Casual outing in bright daylight", categoryKey: "lifestyle" },
                 { alt: "Evening casual style", categoryKey: "lifestyle" },
                 { alt: "Lifestyle mirror selfie", categoryKey: "lifestyle" },
                 { alt: "Outdoor portrait in nature", categoryKey: "lifestyle" },
+                { alt: "Shopping mall visit with a smile", categoryKey: "lifestyle" },
             ]
         },
         partner: {
@@ -386,11 +388,13 @@ export const translations: Record<'en' | 'or', TranslationData> = {
             },
             images: [
                 { alt: "ଏକ ବିଶେଷ କାର୍ଯ୍ୟକ୍ରମରେ ଆନୁଷ୍ଠାନିକ ପୋଷାକ", categoryKey: "formal" },
+                { alt: "ଚଷମା ସହିତ ଏକ ସୁନ୍ଦର ବାହାର ଫଟୋ", categoryKey: "lifestyle" },
                 { alt: "ଆନୁଷ୍ଠାନିକ ସୁଟ୍‌ରେ ଏକ ସୁନ୍ଦର ଲୁକ୍", categoryKey: "formal" },
                 { alt: "ଦିନ ସମୟରେ ଏକ ସୁନ୍ଦର ବାହାର ଫଟୋ", categoryKey: "lifestyle" },
                 { alt: "ସନ୍ଧ୍ୟା ସମୟର ଏକ ସୁନ୍ଦର କାଜୁଆଲ୍ ଲୁକ୍", categoryKey: "lifestyle" },
                 { alt: "ଜୀବନଶୈଳୀ ଦର୍ପଣ ସେଲଫି", categoryKey: "lifestyle" },
                 { alt: "ବାହାରେ ଏକ ପ୍ରାକୃତିକ ପରିବେଶରେ ଫଟୋ", categoryKey: "lifestyle" },
+                { alt: "ସପିଂ ମଲ୍ ପରିଦର୍ଶନ ଏକ ସୁନ୍ଦର ହସ ସହିତ", categoryKey: "lifestyle" },
             ]
         },
         partner: {

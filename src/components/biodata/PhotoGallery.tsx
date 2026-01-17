@@ -2,11 +2,13 @@ import { useState } from "react";
 import { X } from "lucide-react";
 import { personalDetails } from "@/data/biodata";
 import img1 from "@/assets/gallery/mukesh_wedding_1.jpg";
-import img2 from "@/assets/gallery/mukesh_formal_suit.jpg";
-import img3 from "@/assets/gallery/mukesh_lifestyle_door.jpg";
-import img4 from "@/assets/gallery/mukesh_casual_night.jpg";
-import img5 from "@/assets/gallery/mukesh_lifestyle_mirror.jpg";
-import img6 from "@/assets/gallery/mukesh_2.jpg";
+import img2 from "@/assets/gallery/mukesh_stairs.jpg";
+import img3 from "@/assets/gallery/mukesh_formal_suit.jpg";
+import img4 from "@/assets/gallery/mukesh_lifestyle_door.jpg";
+import img5 from "@/assets/gallery/mukesh_casual_night.jpg";
+import img6 from "@/assets/gallery/mukesh_lifestyle_mirror.jpg";
+import img7 from "@/assets/gallery/mukesh_2.jpg";
+import img8 from "@/assets/gallery/mukesh_mall_2.jpg";
 
 import { useLanguage } from "@/contexts/LanguageContext";
 
@@ -15,7 +17,7 @@ const PhotoGallery = () => {
   const { t } = useLanguage();
 
   const galleryImagesWithSrc = t.gallery.images.map((img, idx) => {
-    const sources = [img1, img2, img3, img4, img5, img6];
+    const sources = [img1, img2, img3, img4, img5, img6, img7, img8];
     return {
       ...img,
       src: sources[idx],
