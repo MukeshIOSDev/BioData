@@ -8,8 +8,14 @@ import {
 import { TranslationData } from "@/data/translations";
 import profileImg from "@/assets/gallery/mukesh_profile.jpg";
 
+interface JsPDFWithAutoTable extends jsPDF {
+  lastAutoTable: {
+    finalY: number;
+  };
+}
+
 export const generateBiodataPDF = (t: TranslationData) => {
-  const doc = new jsPDF();
+  const doc = new jsPDF() as JsPDFWithAutoTable;
   const pageWidth = doc.internal.pageSize.getWidth();
   const pageHeight = doc.internal.pageSize.getHeight();
   const goldColor: [number, number, number] = [184, 134, 11];
@@ -117,7 +123,7 @@ export const generateBiodataPDF = (t: TranslationData) => {
     margin: { left: 25 },
   });
 
-  yPosition = (doc as any).lastAutoTable.finalY + 10;
+  yPosition = doc.lastAutoTable.finalY + 10;
 
   // 3. About Me
   addSectionHeader(t.about.title);
@@ -186,7 +192,7 @@ export const generateBiodataPDF = (t: TranslationData) => {
     styles: { fontSize: 9, cellPadding: 3 },
     margin: { left: 25, right: 25 },
   });
-  yPosition = (doc as any).lastAutoTable.finalY + 15;
+  yPosition = doc.lastAutoTable.finalY + 15;
 
   // 7. Partner Preferences
   addSectionHeader(t.partner.title);
@@ -209,7 +215,7 @@ export const generateBiodataPDF = (t: TranslationData) => {
     columnStyles: { 0: { fontStyle: "bold", cellWidth: 50 } },
     margin: { left: 25 },
   });
-  yPosition = (doc as any).lastAutoTable.finalY + 15;
+  yPosition = doc.lastAutoTable.finalY + 15;
 
   // 8. Contact & Socials
   addSectionHeader(t.contact.title);

@@ -1,9 +1,9 @@
 import { familyDetails, familyBackground } from "@/data/biodata";
 import { Users, User, Heart, Briefcase, Phone } from "lucide-react";
-
 import { useLanguage } from "@/contexts/LanguageContext";
+import React from "react";
 
-const relationIcons: Record<string, any> = {
+const relationIcons: Record<string, React.ElementType> = {
   Father: User,
   Mother: Heart,
   Brother: Users,

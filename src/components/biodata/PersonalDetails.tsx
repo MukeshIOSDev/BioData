@@ -1,7 +1,8 @@
 import { personalDetails } from "@/data/biodata";
 import { Calendar, Clock, MapPin, Sparkles, Star, Ruler, Palette, User, Heart, Utensils, Globe } from "lucide-react";
+import React from "react";
 
-const DetailRow = ({ icon: Icon, label, value }: { icon: any; label: string; value: string }) => (
+const DetailRow = ({ icon: Icon, label, value }: { icon: React.ElementType; label: string; value: string }) => (
   <div className="flex items-start gap-4 p-4 rounded-xl bg-background/50 hover:bg-background transition-colors duration-300">
     <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-gold/10 flex items-center justify-center">
       <Icon className="w-5 h-5 text-gold" />
