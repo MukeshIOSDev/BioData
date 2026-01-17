@@ -25,7 +25,7 @@ const PersonalDetails = () => {
     { icon: Sparkles, label: t.personalDetails.rashiLabel, value: t.personalDetails.rashiLabel === "Rashi" ? personalDetails.rashi : "ସିଂହ ରାଶି" },
     { icon: Star, label: t.personalDetails.nakshatraLabel, value: t.personalDetails.nakshatraLabel === "Nakshatra" ? personalDetails.nakshatra : "ମଘା ନକ୍ଷତ୍ର" },
     { icon: Ruler, label: t.personalDetails.heightLabel, value: t.personalDetails.height },
-    { icon: Palette, label: t.personalDetails.complexionLabel, value: t.personalDetails.complexionLabel === "Complexion" ? personalDetails.complexion : "ଗୋରା" },
+    { icon: Palette, label: t.personalDetails.complexionLabel, value: t.personalDetails.complexion },
     { icon: Utensils, label: t.personalDetails.dietLabel, value: t.personalDetails.diet },
     { icon: Globe, label: t.personalDetails.languageLabel, value: t.personalDetails.languages },
   ];

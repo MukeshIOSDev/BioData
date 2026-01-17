@@ -26,6 +26,7 @@ export interface TranslationData {
         phoneLabel: string;
         emailLabel: string;
         languages: string;
+        complexion: string;
         diet: string;
     };
     about: {
@@ -175,6 +176,7 @@ export const translations: Record<'en' | 'or', TranslationData> = {
             education: "BTech – Computer Science",
             placeOfBirth: "Surat, Gujarat",
             languages: "Odia, Hindi, English, Gujarati",
+            complexion: "Wheatish",
             diet: "Vegetarian",
         },
         about: {
@@ -351,6 +353,7 @@ export const translations: Record<'en' | 'or', TranslationData> = {
             education: "ବି.ଟେକ୍ - କମ୍ପ୍ୟୁଟର ସାଇନ୍ସ",
             placeOfBirth: "ସୁରଟ, ଗୁଜୁରାଟ",
             languages: "ଓଡ଼ିଆ, ହିନ୍ଦୀ, ଇଂରାଜୀ, ଗୁଜୁରାଟୀ",
+            complexion: "ଉଜ୍ଜ୍ୱଳ ଶ୍ୟାମଳ",
             diet: "ଶାକାହାରୀ",
         },
         about: {
