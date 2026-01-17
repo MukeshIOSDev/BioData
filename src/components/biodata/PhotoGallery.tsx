@@ -1,42 +1,36 @@
 import { useState } from "react";
 import { X } from "lucide-react";
 import { personalDetails } from "@/data/biodata";
-import img2 from "@/assets/gallery/mukesh_1.jpg";
-import img3 from "@/assets/gallery/mukesh_2.jpg";
-import img4 from "@/assets/gallery/mukesh_3.jpg";
-import img6 from "@/assets/gallery/mukesh_family_1.jpg";
-import img8 from "@/assets/gallery/mukesh_wedding_1.jpg";
-import img9 from "@/assets/gallery/mukesh_lifestyle_mirror.jpg";
+import img1 from "@/assets/gallery/mukesh_wedding_1.jpg";
+import img2 from "@/assets/gallery/mukesh_2.jpg";
+import img3 from "@/assets/gallery/mukesh_lifestyle_mirror.jpg";
+import img4 from "@/assets/gallery/mukesh_4.jpg";
+import img5 from "@/assets/gallery/mukesh_mall_1.jpg";
 
 const galleryImages = [
   {
-    src: img6,
-    alt: `${personalDetails.name} - With family in mountains`,
-    category: "Family",
-  },
-  {
-    src: img8,
+    src: img1,
     alt: `${personalDetails.name} - Formal wear at an event`,
     category: "Formal",
   },
   {
     src: img2,
-    alt: `${personalDetails.name} - Traditional wear at a temple`,
-    category: "Traditional",
-  },
-  {
-    src: img3,
     alt: `${personalDetails.name} - Casual outdoor photo`,
     category: "Lifestyle",
   },
   {
-    src: img4,
-    alt: `${personalDetails.name} - Beach side photo`,
-    category: "Travel",
+    src: img3,
+    alt: `${personalDetails.name} - Mirror selfie`,
+    category: "Lifestyle",
   },
   {
-    src: img9,
-    alt: `${personalDetails.name} - Mirror selfie`,
+    src: img4,
+    alt: `${personalDetails.name} - Portrait session`,
+    category: "Lifestyle",
+  },
+  {
+    src: img5,
+    alt: `${personalDetails.name} - Shopping mall visit`,
     category: "Lifestyle",
   },
 ];
@@ -48,7 +42,7 @@ const PhotoGallery = () => {
   const { t } = useLanguage();
 
   const galleryImagesWithSrc = t.gallery.images.map((img, idx) => {
-    const sources = [img6, img8, img2, img3, img4, img9];
+    const sources = [img1, img2, img3, img4, img5];
     return {
       ...img,
       src: sources[idx],

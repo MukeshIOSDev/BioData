@@ -207,12 +207,11 @@ export const translations: Record<'en' | 'or', TranslationData> = {
                 travel: "Travel",
             },
             images: [
-                { alt: "With family in mountains", categoryKey: "family" },
                 { alt: "Formal wear at an event", categoryKey: "formal" },
-                { alt: "Traditional wear at a temple", categoryKey: "traditional" },
                 { alt: "Casual outdoor photo", categoryKey: "lifestyle" },
-                { alt: "Beach side photo", categoryKey: "travel" },
                 { alt: "Mirror selfie", categoryKey: "lifestyle" },
+                { alt: "Portrait session", categoryKey: "lifestyle" },
+                { alt: "Shopping mall visit", categoryKey: "lifestyle" },
             ]
         },
         partner: {
@@ -385,12 +384,11 @@ export const translations: Record<'en' | 'or', TranslationData> = {
                 travel: "ଭ୍ରମଣ",
             },
             images: [
-                { alt: "ପାହାଡରେ ପରିବାର ସହିତ", categoryKey: "family" },
                 { alt: "ଏକ କାର୍ଯ୍ୟକ୍ରମରେ ଆନୁଷ୍ଠାନିକ ପୋଷାକ", categoryKey: "formal" },
-                { alt: "ଏକ ମନ୍ଦିରରେ ପାରମ୍ପରିକ ପୋଷାକ", categoryKey: "traditional" },
                 { alt: "ବାହାରେ ଏକ କାଜୁଆଲ୍ ଫଟୋ", categoryKey: "lifestyle" },
-                { alt: "ସମୁଦ୍ର କୂଳରେ ଫଟୋ", categoryKey: "travel" },
                 { alt: "ଦର୍ପଣ ସେଲଫି", categoryKey: "lifestyle" },
+                { alt: "ପ୍ରତିକୃତି ଫଟୋ (Portrait)", categoryKey: "lifestyle" },
+                { alt: "ସପିଂ ମଲ୍ ପରିଦର୍ଶନ", categoryKey: "lifestyle" },
             ]
         },
         partner: {
