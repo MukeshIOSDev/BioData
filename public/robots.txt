@@ -1,0 +1,12 @@
+# robots.txt for Mukesh Behera Biodata Website
+# Configured for optimal SEO crawling
+
+User-agent: *
+Allow: /
+
+# Disallow admin/private paths (none in this project)
+Disallow: /api/
+Disallow: /_*
+
+# Sitemap location
+Sitemap: https://mukesh-bio-data.netlify.app/sitemap.xml
