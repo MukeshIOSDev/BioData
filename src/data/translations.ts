@@ -350,7 +350,7 @@ export const translations: Record<'en' | 'or', TranslationData> = {
             height: "୫ ଫୁଟ ୮ ଇଞ୍ଚ",
             education: "ବି.ଟେକ୍ - କମ୍ପ୍ୟୁଟର ସାଇନ୍ସ",
             placeOfBirth: "ସୁରଟ, ଗୁଜୁରାଟ",
-            languages: "ହିନ୍ଦୀ, ଇଂରାଜୀ, ଓଡ଼ିଆ, ଗୁଜୁରାଟୀ",
+            languages: "ଓଡ଼ିଆ, ହିନ୍ଦୀ, ଇଂରାଜୀ, ଗୁଜୁରାଟୀ",
             diet: "ଶାକାହାରୀ",
         },
         about: {
