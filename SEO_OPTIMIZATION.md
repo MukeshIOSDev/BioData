@@ -91,12 +91,12 @@
 
 ### Secondary Keywords
 
-- Software Professional biodata
-- BTech Chemical Engineering biodata
+- Sr. Software Developer biodata
+- BTech Computer Science biodata
 - Surat Gujarat matrimonial
 - Odisha marriage biodata
 - Kendrapara biodata
-- 25 years biodata
+- 26 years biodata
 - Never married biodata
 - Makara Rashi biodata
 - Uthrashada Nakshatra biodata
@@ -104,15 +104,15 @@
 ### Long-tail Keywords
 
 - Mukesh Behera marriage biodata Surat Gujarat
-- Software Professional marriage biodata 25 years
-- BTech Chemical Engineering matrimonial profile
+- Sr. Software Developer marriage biodata 26 years
+- BTech Computer Science matrimonial profile
 - Family-oriented biodata Surat Odisha
 
 ## 📊 Next Steps for Maximum SEO
 
 1. **Google Search Console**
 
-   - Submit sitemap: `https://mukesh-biodata.com/sitemap.xml`
+   - Submit sitemap: `https://mukesh-biodata-2026.netlify.app/sitemap.xml`
    - Verify ownership
    - Monitor search performance
 
@@ -149,10 +149,10 @@
 
 Before going live:
 
-- [ ] Update `siteUrl` in `Index.tsx` with actual domain
-- [ ] Update sitemap.xml with actual domain
-- [ ] Update robots.txt with actual domain
-- [ ] Create and upload og-image.jpg (1200x630px)
+- [x] Update `siteUrl` in `Index.tsx` with actual domain
+- [x] Update sitemap.xml with actual domain
+- [x] Update robots.txt with actual domain
+- [x] Create and upload og-image.jpg (1200x630px)
 - [ ] Set up SSL certificate (HTTPS)
 - [ ] Submit sitemap to Google Search Console
 - [ ] Submit sitemap to Bing Webmaster Tools
@@ -162,14 +162,14 @@ Before going live:
 
 ## 📝 Important Notes
 
-1. **Domain**: Replace `https://mukesh-biodata.com` with your actual domain in:
+1. **Domain**: Your current domain is `https://mukesh-biodata-2026.netlify.app/`. Ensure this is reflected in:
 
    - `index.html`
    - `src/pages/Index.tsx`
    - `public/sitemap.xml`
    - `public/robots.txt`
 
-2. **OG Image**: Create a 1200x630px image named `og-image.jpg` and place it in `/public/` folder
+2. **OG Image**: A 1200x630px image named `og-image.jpg` has been created and placed in the `/public/` folder
 
 3. **Favicon**: Add favicon.ico and apple-touch-icon.png to `/public/` folder
 
@@ -182,7 +182,7 @@ With these optimizations, your website should:
 - ✅ Appear in Google search results within 1-2 weeks
 - ✅ Rank for name-based searches (Mukesh Behera)
 - ✅ Rank for location-based searches (Surat biodata, Gujarat matrimonial)
-- ✅ Rank for profession-based searches (Software Professional biodata)
+- ✅ Rank for profession-based searches (Sr. Software Developer biodata)
 - ✅ Have rich snippets in search results
 - ✅ Be shareable on social media with proper previews
 
