@@ -134,11 +134,11 @@ const Index = () => {
           content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
         />
         <meta name="language" content="English" />
-        <link rel="canonical" href="https://mukesh-biodata-2026.netlify.app" />
+        <link rel="canonical" href="https://mukesh-biodata-2026.netlify.app/" />
 
         {/* Open Graph / Facebook */}
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://mukesh-biodata-2026.netlify.app" />
+        <meta property="og:url" content="https://mukesh-biodata-2026.netlify.app/" />
         <meta property="og:title" content={t.seo.title} />
         <meta property="og:description" content={t.seo.description} />
         <meta property="og:image" content="/og-image.jpg" />
@@ -148,7 +148,7 @@ const Index = () => {
 
         {/* Twitter Card */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:url" content="https://mukesh-biodata-2026.netlify.app" />
+        <meta name="twitter:url" content="https://mukesh-biodata-2026.netlify.app/" />
         <meta name="twitter:title" content={t.seo.title} />
         <meta name="twitter:description" content={t.seo.description} />
         <meta name="twitter:image" content="/og-image.jpg" />

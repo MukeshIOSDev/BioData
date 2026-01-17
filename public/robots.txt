@@ -9,4 +9,4 @@ Disallow: /api/
 Disallow: /_*
 
 # Sitemap location
-Sitemap: https://mukesh-bio-data.netlify.app/sitemap.xml
+Sitemap: https://mukesh-biodata-2026.netlify.app/sitemap.xml
