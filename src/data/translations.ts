@@ -174,7 +174,7 @@ export const translations: Record<'en' | 'or', TranslationData> = {
             height: "5 feet 8 inches",
             education: "BTech – Computer Science",
             placeOfBirth: "Surat, Gujarat",
-            languages: "Hindi, English, Odia, Gujarati",
+            languages: "Odia, Hindi, English, Gujarati",
             diet: "Vegetarian",
         },
         about: {

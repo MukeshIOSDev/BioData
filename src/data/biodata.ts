@@ -20,7 +20,7 @@ export const personalDetails = {
   linkedIn: "https://www.linkedin.com/in/mukesh-behera-8b6604178/",
   phone: "7016062806",
   email: "mukesh.iosappdev@gmail.com",
-  language: "Hindi, English, Odia, Gujarati",
+  language: "Odia, Hindi, English, Gujarati",
 };
 
 export const aboutMe = `I am a simple, caring, and family-oriented person who believes in traditional values while embracing modern thinking. Born and raised with strong moral values, I respect elders and cherish family bonds deeply.
