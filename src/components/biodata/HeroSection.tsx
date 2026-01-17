@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { personalDetails } from "@/data/biodata";
 import { Phone, Download, MapPin, Heart, Sparkles } from "lucide-react";
 import img11 from "@/assets/gallery/mukesh_profile.jpg";
+import { generateBiodataPDF } from "@/utils/generatePDF";
 
 import { useLanguage } from "@/contexts/LanguageContext";
 
@@ -105,13 +106,6 @@ const HeroSection = () => {
               </p>
               <p className="text-sm text-muted-foreground">{t.personalDetails.rashiLabel}</p>
             </div>
-            <div className="w-px bg-border" />
-            <div className="text-center">
-              <p className="text-2xl md:text-3xl font-display font-bold text-gold">
-                {t.personalDetails.maritalStatus}
-              </p>
-              <p className="text-sm text-muted-foreground">{t.personalDetails.maritalStatusLabel}</p>
-            </div>
           </div>
 
           {/* CTA Buttons */}
@@ -127,7 +121,7 @@ const HeroSection = () => {
             <Button
               variant="gold-outline"
               size="xl"
-              onClick={() => scrollToSection("personal")}
+              onClick={() => generateBiodataPDF(t)}
             >
               <Download className="w-5 h-5" />
               {t.pdf.download}

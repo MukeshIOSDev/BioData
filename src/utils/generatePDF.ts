@@ -2,48 +2,60 @@ import jsPDF from "jspdf";
 import autoTable from "jspdf-autotable";
 import {
   personalDetails,
-  aboutMe,
-  hobbiesInterests,
   familyDetails,
-  familyBackground,
-  addresses,
-  educationDetails,
-  workDetails,
-  partnerPreferences,
+  addresses
 } from "@/data/biodata";
+import { TranslationData } from "@/data/translations";
+import profileImg from "@/assets/gallery/mukesh_profile.jpg";
 
-export const generateBiodataPDF = () => {
+export const generateBiodataPDF = (t: TranslationData) => {
   const doc = new jsPDF();
   const pageWidth = doc.internal.pageSize.getWidth();
   const pageHeight = doc.internal.pageSize.getHeight();
-  let yPosition = 20;
+  const goldColor: [number, number, number] = [184, 134, 11];
+  const textColor: [number, number, number] = [31, 41, 55];
+  const mutedTextColor: [number, number, number] = [107, 114, 128];
 
-  // Helper function to add a new page if needed
+  let yPosition = 25;
+
+  // Helper: Draw Page Decoration (Border)
+  const drawPageBorder = () => {
+    doc.setDrawColor(goldColor[0], goldColor[1], goldColor[2]);
+    doc.setLineWidth(0.5);
+    doc.rect(10, 10, pageWidth - 20, pageHeight - 20);
+    doc.setLineWidth(0.2);
+    doc.rect(12, 12, pageWidth - 24, pageHeight - 24);
+  };
+
+  // Helper: Section Header
+  const addSectionHeader = (title: string) => {
+    checkPageBreak(20);
+    doc.setFillColor(goldColor[0], goldColor[1], goldColor[2]);
+    doc.rect(20, yPosition, pageWidth - 40, 10, "F");
+    doc.setFont("helvetica", "bold");
+    doc.setFontSize(14);
+    doc.setTextColor(255, 255, 255);
+    doc.text(title.toUpperCase(), pageWidth / 2, yPosition + 7, { align: "center" });
+    doc.setTextColor(textColor[0], textColor[1], textColor[2]);
+    yPosition += 15;
+  };
+
   const checkPageBreak = (requiredSpace: number) => {
-    if (yPosition + requiredSpace > pageHeight - 20) {
+    if (yPosition + requiredSpace > pageHeight - 25) {
       doc.addPage();
-      yPosition = 20;
+      drawPageBorder();
+      yPosition = 25;
       return true;
     }
     return false;
   };
 
-  // Helper function to add text with word wrap
-  const addText = (
-    text: string,
-    fontSize: number,
-    isBold: boolean = false,
-    color: [number, number, number] = [0, 0, 0]
-  ) => {
+  const addWrappedText = (text: string, fontSize: number, isBold: boolean = false, color: [number, number, number] = textColor) => {
     doc.setFontSize(fontSize);
     doc.setTextColor(color[0], color[1], color[2]);
-    if (isBold) {
-      doc.setFont("helvetica", "bold");
-    } else {
-      doc.setFont("helvetica", "normal");
-    }
+    doc.setFont("helvetica", isBold ? "bold" : "normal");
 
-    const margin = 20;
+    const margin = 25;
     const maxWidth = pageWidth - 2 * margin;
     const lines = doc.splitTextToSize(text, maxWidth);
 
@@ -54,299 +66,168 @@ export const generateBiodataPDF = () => {
     });
   };
 
-  // Title
-  doc.setFontSize(24);
-  doc.setTextColor(184, 134, 11); // Gold color
-  doc.setFont("helvetica", "bold");
-  doc.text("MARRIAGE BIODATA", pageWidth / 2, yPosition, { align: "center" });
-  yPosition += 15;
+  // --- Start Generation ---
+  drawPageBorder();
 
-  // Name
-  doc.setFontSize(20);
-  doc.setTextColor(0, 0, 0);
-  doc.setFont("helvetica", "bold");
-  doc.text(personalDetails.name, pageWidth / 2, yPosition, { align: "center" });
-  yPosition += 10;
+  // 1. Header with Image & Name
+  try {
+    // Round Profile Image (approximate with a clip if possible, or just square for simplicity in standard jspdf)
+    // Custom rounding is hard in basic jspdf without plugins, so we use a styled square or just add the image.
+    doc.addImage(profileImg, "JPEG", 25, 20, 35, 35);
+  } catch (e) {
+    console.error("Could not load profile image for PDF", e);
+  }
 
-  // Tagline
+  // Name & Tagline
+  doc.setFontSize(26);
+  doc.setFont("helvetica", "bold");
+  doc.setTextColor(goldColor[0], goldColor[1], goldColor[2]);
+  doc.text(t.personalDetails.name, 65, 32);
+
   doc.setFontSize(12);
   doc.setFont("helvetica", "italic");
-  doc.setTextColor(100, 100, 100);
-  doc.text(personalDetails.tagline, pageWidth / 2, yPosition, {
-    align: "center",
-  });
-  yPosition += 15;
+  doc.setTextColor(mutedTextColor[0], mutedTextColor[1], mutedTextColor[2]);
+  const taglineLines = doc.splitTextToSize(t.personalDetails.tagline, pageWidth - 90);
+  doc.text(taglineLines, 65, 40);
 
-  // Personal Details Section
-  checkPageBreak(30);
-  doc.setFontSize(16);
-  doc.setFont("helvetica", "bold");
-  doc.setTextColor(184, 134, 11);
-  doc.text("Personal Details", 20, yPosition);
-  yPosition += 10;
+  yPosition = 65;
 
-  doc.setFontSize(10);
-  doc.setFont("helvetica", "normal");
-  doc.setTextColor(0, 0, 0);
+  // 2. Personal Details Table
+  addSectionHeader(t.navigation.personal || "Personal Details");
 
   const personalData = [
-    ["Date of Birth", personalDetails.dateOfBirth],
-    ["Age", personalDetails.age],
-    ["Time of Birth", personalDetails.timeOfBirth],
-    ["Place of Birth", personalDetails.placeOfBirth],
-    ["Rashi", personalDetails.rashi],
-    ["Nakshatra", personalDetails.nakshatra],
-    ["Gotra", personalDetails.gotra],
-    ["Height", personalDetails.height],
-    ["Weight", personalDetails.weight],
-    ["Complexion", personalDetails.complexion],
-    ["Blood Group", personalDetails.bloodGroup],
-    ["Diet", personalDetails.diet],
-    ["Languages", personalDetails.language],
+    [t.personalDetails.dateOfBirthLabel, personalDetails.dateOfBirth],
+    [t.personalDetails.ageLabel, t.personalDetails.age],
+    [t.personalDetails.timeOfBirthLabel, personalDetails.timeOfBirth],
+    [t.personalDetails.placeOfBirthLabel, t.personalDetails.placeOfBirth],
+    [t.personalDetails.rashiLabel, t.personalDetails.rashiLabel === "Rashi" ? personalDetails.rashi : "ସିଂହ ରାଶି"],
+    [t.personalDetails.nakshatraLabel, t.personalDetails.nakshatraLabel === "Nakshatra" ? personalDetails.nakshatra : "ମଘା ନକ୍ଷତ୍ର"],
+    [t.personalDetails.heightLabel, t.personalDetails.height],
+    [t.personalDetails.complexionLabel, t.personalDetails.complexion],
+    [t.personalDetails.dietLabel, t.personalDetails.diet],
+    [t.personalDetails.languageLabel, t.personalDetails.languages],
   ];
 
   autoTable(doc, {
     startY: yPosition,
-    head: [],
     body: personalData,
     theme: "plain",
-    styles: { fontSize: 10, cellPadding: 3 },
-    columnStyles: {
-      0: { fontStyle: "bold", cellWidth: 60 },
-      1: { cellWidth: "auto" },
-    },
-    margin: { left: 20, right: 20 },
+    styles: { fontSize: 10, cellPadding: 3, textColor: textColor },
+    columnStyles: { 0: { fontStyle: "bold", cellWidth: 50 } },
+    margin: { left: 25 },
   });
 
-  yPosition = (doc as any).lastAutoTable?.finalY + 10 || yPosition + 20;
+  yPosition = (doc as any).lastAutoTable.finalY + 10;
 
-  // About Me Section
-  checkPageBreak(30);
-  doc.setFontSize(16);
-  doc.setFont("helvetica", "bold");
-  doc.setTextColor(184, 134, 11);
-  doc.text("About Me", 20, yPosition);
+  // 3. About Me
+  addSectionHeader(t.about.title);
+  addWrappedText(t.about.content, 10);
   yPosition += 10;
 
-  addText(aboutMe, 10, false, [0, 0, 0]);
-  yPosition += 5;
+  // 4. Education & Career
+  addSectionHeader(t.educationWork.title);
 
-  // Education & Work Section
-  checkPageBreak(30);
-  doc.setFontSize(16);
+  // Education
   doc.setFont("helvetica", "bold");
-  doc.setTextColor(184, 134, 11);
-  doc.text("Education & Career", 20, yPosition);
-  yPosition += 10;
-
   doc.setFontSize(11);
-  doc.setFont("helvetica", "bold");
-  doc.text("Education:", 20, yPosition);
-  yPosition += 7;
+  doc.text(t.educationWork.educationTitle + ":", 25, yPosition);
+  yPosition += 8;
 
-  educationDetails.forEach((edu) => {
+  t.educationWork.educationDetails.forEach(edu => {
+    checkPageBreak(15);
+    doc.setFont("helvetica", "bold");
     doc.setFontSize(10);
+    doc.text(edu.degree + " in " + edu.field, 30, yPosition);
+    yPosition += 5;
     doc.setFont("helvetica", "normal");
-    doc.text(`${edu.degree} - ${edu.field}`, 25, yPosition);
-    yPosition += 6;
-    doc.text(`${edu.institution} (${edu.duration})`, 25, yPosition);
-    yPosition += 8;
+    doc.text(edu.institution + " (" + edu.duration + ")", 30, yPosition);
+    yPosition += 10;
   });
 
+  // Career
+  checkPageBreak(25);
+  doc.setFont("helvetica", "bold");
   doc.setFontSize(11);
+  doc.text(t.educationWork.workTitle + ":", 25, yPosition);
+  yPosition += 8;
+
+  const work = t.educationWork.workDetails;
+  doc.setFontSize(10);
   doc.setFont("helvetica", "bold");
-  doc.text("Current Position:", 20, yPosition);
+  doc.text(work.currentRole, 30, yPosition);
+  yPosition += 5;
+  doc.setFont("helvetica", "normal");
+  doc.text(work.company + " | " + work.location, 30, yPosition);
+  yPosition += 5;
+  doc.text(work.experience, 30, yPosition);
   yPosition += 7;
-
-  doc.setFontSize(10);
-  doc.setFont("helvetica", "normal");
-  doc.text(
-    `${workDetails.currentRole} at ${workDetails.company}`,
-    25,
-    yPosition
-  );
-  yPosition += 6;
-  doc.text(`Location: ${workDetails.location}`, 25, yPosition);
-  yPosition += 6;
-  doc.text(`Experience: ${workDetails.experience}`, 25, yPosition);
-  yPosition += 6;
-  doc.text(`Annual Salary: ${personalDetails.annualSalary}`, 25, yPosition);
-  yPosition += 6;
-  addText(workDetails.description, 10, false, [0, 0, 0]);
-  yPosition += 5;
-
-  // Hobbies & Interests
-  checkPageBreak(20);
-  doc.setFontSize(16);
-  doc.setFont("helvetica", "bold");
-  doc.setTextColor(184, 134, 11);
-  doc.text("Hobbies & Interests", 20, yPosition);
+  addWrappedText(work.description, 10);
   yPosition += 10;
 
-  doc.setFontSize(10);
-  doc.setFont("helvetica", "normal");
-  doc.text(hobbiesInterests.join(", "), 20, yPosition);
+  // 5. Hobbies
+  addSectionHeader(t.hobbies.title);
+  const hobbiesText = t.hobbies.list.join(" • ");
+  addWrappedText(hobbiesText, 10);
+  yPosition += 15;
+
+  // 6. Family Background
+  addSectionHeader(t.family.title);
+  addWrappedText(t.family.background, 10);
   yPosition += 10;
 
-  // Family Details Section
-  checkPageBreak(30);
-  doc.setFontSize(16);
-  doc.setFont("helvetica", "bold");
-  doc.setTextColor(184, 134, 11);
-  doc.text("Family Background", 20, yPosition);
-  yPosition += 10;
-
-  addText(familyBackground, 10, false, [0, 0, 0]);
-  yPosition += 5;
-
-  checkPageBreak(30);
-  doc.setFontSize(14);
-  doc.setFont("helvetica", "bold");
-  doc.setTextColor(184, 134, 11);
-  doc.text("Family Members", 20, yPosition);
-  yPosition += 10;
-
-  const familyData = familyDetails.map((member) => [
-    member.relation,
-    member.name,
-    member.profession,
-    member.mobile || "N/A",
-  ]);
-
+  // Family Members Table
+  const familyData = t.family.members.map(m => [m.relation, m.name, m.profession, m.mobile || "-"]);
   autoTable(doc, {
     startY: yPosition,
-    head: [["Relation", "Name", "Profession", "Mobile"]],
+    head: [[t.family.headers.relation, t.family.headers.name, t.family.headers.profession, "Mobile"]],
     body: familyData,
     theme: "striped",
-    headStyles: {
-      fillColor: [184, 134, 11],
-      textColor: [255, 255, 255],
-      fontStyle: "bold",
-    },
-    styles: { fontSize: 10, cellPadding: 3 },
-    margin: { left: 20, right: 20 },
+    headStyles: { fillColor: goldColor, textColor: 255 },
+    styles: { fontSize: 9, cellPadding: 3 },
+    margin: { left: 25, right: 25 },
   });
-
-  yPosition = (doc as any).lastAutoTable?.finalY + 10 || yPosition + 20;
-
-  // Address Section
-  checkPageBreak(30);
-  doc.setFontSize(16);
-  doc.setFont("helvetica", "bold");
-  doc.setTextColor(184, 134, 11);
-  doc.text("Address Details", 20, yPosition);
-  yPosition += 10;
-
-  doc.setFontSize(11);
-  doc.setFont("helvetica", "bold");
-  doc.text("Current Address:", 20, yPosition);
-  yPosition += 7;
-
-  doc.setFontSize(10);
-  doc.setFont("helvetica", "normal");
-  doc.text(
-    `${addresses.current.city}, ${addresses.current.state}`,
-    25,
-    yPosition
-  );
-  yPosition += 6;
-  doc.text(addresses.current.country, 25, yPosition);
-  yPosition += 10;
-
-  doc.setFontSize(11);
-  doc.setFont("helvetica", "bold");
-  doc.text("Native Place:", 20, yPosition);
-  yPosition += 7;
-
-  doc.setFontSize(10);
-  doc.setFont("helvetica", "normal");
-  doc.text(`${addresses.permanent.village}`, 25, yPosition);
-  yPosition += 6;
-  doc.text(
-    `P.O: ${addresses.permanent.postOffice}, Via: ${addresses.permanent.via}`,
-    25,
-    yPosition
-  );
-  yPosition += 6;
-  doc.text(
-    `${addresses.permanent.district}, ${addresses.permanent.state}`,
-    25,
-    yPosition
-  );
-  yPosition += 6;
-  doc.text(addresses.permanent.country, 25, yPosition);
-  yPosition += 10;
-
-  // Partner Preferences
-  checkPageBreak(30);
-  doc.setFontSize(16);
-  doc.setFont("helvetica", "bold");
-  doc.setTextColor(184, 134, 11);
-  doc.text("Partner Preferences", 20, yPosition);
-  yPosition += 10;
-
-  const preferenceData = [
-    ["Age Range", partnerPreferences.ageRange],
-    ["Height", partnerPreferences.height],
-    ["Education", partnerPreferences.education],
-    ["Working Preference", partnerPreferences.workingPreference],
-    ["Family Values", partnerPreferences.familyValues],
-    ["Location", partnerPreferences.location],
-  ];
-
-  autoTable(doc, {
-    startY: yPosition,
-    head: [],
-    body: preferenceData,
-    theme: "plain",
-    styles: { fontSize: 10, cellPadding: 3 },
-    columnStyles: {
-      0: { fontStyle: "bold", cellWidth: 60 },
-      1: { cellWidth: "auto" },
-    },
-    margin: { left: 20, right: 20 },
-  });
-
-  yPosition = (doc as any).lastAutoTable?.finalY + 10 || yPosition + 20;
-
-  // Contact Information
-  checkPageBreak(20);
-  doc.setFontSize(16);
-  doc.setFont("helvetica", "bold");
-  doc.setTextColor(184, 134, 11);
-  doc.text("Contact Information", 20, yPosition);
-  yPosition += 10;
-
-  const contactData = [
-    ["Phone", personalDetails.phone],
-    ["Email", personalDetails.email],
-    ["LinkedIn", personalDetails.linkedIn],
-  ];
-
-  autoTable(doc, {
-    startY: yPosition,
-    head: [],
-    body: contactData,
-    theme: "plain",
-    styles: { fontSize: 10, cellPadding: 3 },
-    columnStyles: {
-      0: { fontStyle: "bold", cellWidth: 60 },
-      1: { cellWidth: "auto" },
-    },
-    margin: { left: 20, right: 20 },
-  });
-
   yPosition = (doc as any).lastAutoTable.finalY + 15;
 
-  // Footer
-  checkPageBreak(10);
-  doc.setFontSize(9);
-  doc.setFont("helvetica", "italic");
-  doc.setTextColor(150, 150, 150);
-  doc.text("Generated from Biodata Website", pageWidth / 2, yPosition, {
-    align: "center",
+  // 7. Partner Preferences
+  addSectionHeader(t.partner.title);
+  addWrappedText(t.partner.subtitle, 10);
+  yPosition += 5;
+
+  const partnerData = [
+    [t.partner.labels.ageRange, t.partner.ageRange],
+    [t.partner.labels.height, t.partner.height],
+    [t.partner.labels.education, t.partner.education],
+    [t.partner.labels.workingPreference, t.partner.workingPreference],
+    [t.partner.labels.familyValues, t.partner.familyValues],
+    [t.partner.labels.location, t.partner.location],
+  ];
+  autoTable(doc, {
+    startY: yPosition,
+    body: partnerData,
+    theme: "plain",
+    styles: { fontSize: 10, cellPadding: 2, textColor: textColor },
+    columnStyles: { 0: { fontStyle: "bold", cellWidth: 50 } },
+    margin: { left: 25 },
+  });
+  yPosition = (doc as any).lastAutoTable.finalY + 15;
+
+  // 8. Contact & Socials
+  addSectionHeader(t.contact.title);
+  const contactInfo = [
+    [t.personalDetails.phoneLabel, "+91 " + personalDetails.phone],
+    [t.personalDetails.instagramLabel, "Instagram: @mukeshsbehera"],
+    ["LinkedIn", personalDetails.linkedIn.split("in/")[1].replace("/", "")],
+  ];
+  autoTable(doc, {
+    startY: yPosition,
+    body: contactInfo,
+    theme: "plain",
+    styles: { fontSize: 10, cellPadding: 2 },
+    columnStyles: { 0: { fontStyle: "bold", cellWidth: 50 } },
+    margin: { left: 25 },
   });
 
-  // Save the PDF
-  doc.save(`${personalDetails.name.replace(/\s+/g, "_")}_Biodata.pdf`);
+  // Save PDF
+  const filename = t.pdf.filename || `${personalDetails.name.replace(/\s+/g, "_")}_Biodata.pdf`;
+  doc.save(filename);
 };

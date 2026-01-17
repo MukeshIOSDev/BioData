@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { personalDetails } from "@/data/biodata";
-import { Phone, MessageCircle, Linkedin, Mail, Heart } from "lucide-react";
+import { Phone, MessageCircle, Linkedin, Instagram, Heart } from "lucide-react";
 
 import { useLanguage } from "@/contexts/LanguageContext";
 
@@ -68,8 +68,8 @@ const ContactSection = () => {
               </a>
             </Button>
             <Button variant="elegant" size="icon" asChild className="w-12 h-12">
-              <a href={`mailto:${personalDetails.email}`} aria-label="Email">
-                <Mail className="w-5 h-5" />
+              <a href={personalDetails.instagram} target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                <Instagram className="w-5 h-5" />
               </a>
             </Button>
           </div>

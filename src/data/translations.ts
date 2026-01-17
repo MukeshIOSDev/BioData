@@ -24,7 +24,7 @@ export interface TranslationData {
         placeOfBirth: string;
         languageLabel: string;
         phoneLabel: string;
-        emailLabel: string;
+        instagramLabel: string;
         languages: string;
         complexion: string;
         diet: string;
@@ -170,7 +170,7 @@ export const translations: Record<'en' | 'or', TranslationData> = {
             annualSalaryLabel: "Annual Salary",
             languageLabel: "Languages",
             phoneLabel: "Phone",
-            emailLabel: "Email",
+            instagramLabel: "Instagram",
             age: "26 Years",
             height: "5 feet 8 inches",
             education: "BTech – Computer Science",
@@ -181,7 +181,7 @@ export const translations: Record<'en' | 'or', TranslationData> = {
         },
         about: {
             title: "About Me",
-            content: "I am a simple, caring, and family-oriented person who believes in traditional values while embracing modern thinking. Born and raised with strong moral values, I respect elders and cherish family bonds deeply. I completed my BTech in Computer Science and am currently working as a Sr. Software Developer (Remote) at Contractor Plus, which is based in Mumbai, Maharashtra. I am currently living in Surat, Gujarat, where I enjoy a fulfilling career that allows me to balance professional growth with family life. In my free time, I love spending quality time with family, watching movies, exploring new places, and learning new technologies. I believe in honest communication, mutual respect, and building a life together based on trust and understanding.",
+            content: "I am a simple, caring, and family-oriented person who believes in traditional values while embracing modern thinking. Born and raised with strong moral values, I respect elders and cherish family bonds deeply. I completed my BTech in Computer Science and am currently working as a Sr. Software Developer (Remote) at Contractor Plus, which is based in Mumbai, Maharashtra. I am currently living in Surat, Gujarat, where I enjoy a fulfilling career that allows me to balance professional growth with family life. In my free time, I love spending quality time with family, watching movies, exploring new places, learning new things, and engaging in fitness and wellness activities. I believe in honest communication, mutual respect, and building a life together based on trust and understanding.",
         },
         hobbies: {
             title: "Hobbies & Interests",
@@ -189,7 +189,8 @@ export const translations: Record<'en' | 'or', TranslationData> = {
                 "Spending time with family",
                 "Watching movies",
                 "Traveling & exploring new places",
-                "Learning new technologies",
+                "Learning new things",
+                "Fitness and wellness activities",
                 "Listening music",
                 "Reading",
                 "Cooking occasionally",
@@ -216,9 +217,9 @@ export const translations: Record<'en' | 'or', TranslationData> = {
         },
         partner: {
             title: "Partner Preferences",
-            subtitle: "Looking for someone who values family, honesty, and togetherness",
-            ageRange: "21 - 26 Years",
-            height: "5'2\" - 5'7\"",
+            subtitle: "Looking for a kind, understanding, and emotionally mature partner who values mutual respect, honesty, and long-term commitment. Someone who can balance family responsibilities with personal growth and believes in open communication and togetherness.\n\nA partner who believes in maintaining a healthy and active lifestyle, values fitness, wellness, and overall well-being would be appreciated. The intent is to build a supportive, respectful, and happy life together with shared values and understanding.",
+            ageRange: "20 - 25 Years",
+            height: "5'0\" - 5'6\"",
             education: "Graduate or above",
             workingPreference: "Working or Non-working",
             familyValues: "Moderate / Traditional",
@@ -347,7 +348,7 @@ export const translations: Record<'en' | 'or', TranslationData> = {
             annualSalaryLabel: "ବାର୍ଷିକ ଦରମା",
             languageLabel: "ଭାଷା",
             phoneLabel: "ଫୋନ୍",
-            emailLabel: "ଇମେଲ୍",
+            instagramLabel: "ଇନଷ୍ଟାଗ୍ରାମ (Instagram)",
             age: "୨୬ ବର୍ଷ",
             height: "୫ ଫୁଟ ୮ ଇଞ୍ଚ",
             education: "ବି.ଟେକ୍ - କମ୍ପ୍ୟୁଟର ସାଇନ୍ସ",
@@ -358,7 +359,7 @@ export const translations: Record<'en' | 'or', TranslationData> = {
         },
         about: {
             title: "ମୋ ବିଷୟରେ",
-            content: "ମୁଁ ଜଣେ ସରଳ, ଯତ୍ନଶୀଳ ଏବଂ ପରିବାର ପ୍ରତି ସମର୍ପିତ ବ୍ୟକ୍ତି ଯିଏ ପାରମ୍ପରିକ ମୂଲ୍ୟବୋଧ ଏବଂ ଆଧୁନିକ ଚିନ୍ତାଧାରାରେ ବିଶ୍ୱାସ କରେ | ମୁଁ ମୋର ବି.ଟେକ୍ (BTech) କମ୍ପ୍ୟୁଟର ସାଇନ୍ସରେ ସମାପ୍ତ କରିଛି ଏବଂ ବର୍ତ୍ତମାନ ମୁମ୍ବାଇରେ ଥିବା କଣ୍ଟ୍ରାକ୍ଟର ପ୍ଲସ (Contractor Plus) କମ୍ପାନୀରେ ଜଣେ ସିନିୟର ସଫ୍ଟୱେର୍ ଡେଭଲପର୍ (Sr. Software Developer - Remote) ଭାବରେ କାର୍ଯ୍ୟ କରୁଛି | ବର୍ତ୍ତମାନ ମୁଁ ସୁରଟ, ଗୁଜୁରାଟରେ ରହୁଛି | ମୋର ଖାଲି ସମୟରେ ମୁଁ ପରିବାର ସହିତ ସମୟ ବିତାଇବାକୁ, ଚଳଚ୍ଚିତ୍ର ଦେଖିବାକୁ ଏବଂ ନୂତନ ସ୍ଥାନ ଭ୍ରମଣ କରିବାକୁ ଭଲ ପାଏ |",
+            content: "ମୁଁ ଜଣେ ସରଳ, ଯତ୍ନଶୀଳ ଏବଂ ପରିବାର ପ୍ରତି ସମର୍ପିତ ବ୍ୟକ୍ତି ଯିଏ ପାରମ୍ପରିକ ମୂଲ୍ୟବୋଧ ଏବଂ ଆଧୁନିକ ଚିନ୍ତାଧାରାରେ ବିଶ୍ୱାସ କରେ | ମୁଁ ମୋର ବି.ଟେକ୍ (BTech) କମ୍ପ୍ୟୁଟର ସାଇନ୍ସରେ ସମାପ୍ତ କରିଛି ଏବଂ ବର୍ତ୍ତମାନ ମୁମ୍ବାଇରେ ଥିବା କଣ୍ଟ୍ରକ୍ଟର ପ୍ଲସ (Contractor Plus) କମ୍ପାନୀରେ ଜଣେ ସିନିୟର ସଫ୍ଟୱେର୍ ଡେଭଲପର୍ (Sr. Software Developer - Remote) ଭାବରେ କାର୍ଯ୍ୟ କରୁଛି | ବର୍ତ୍ତମାନ ମୁଁ ସୁରଟ, ଗୁଜୁରାଟରେ ରହୁଛି | ମୋର ଖାଲି ସମୟରେ ମୁଁ ପରିବାର ସହିତ ସମୟ ବିତାଇବାକୁ, ଚଳଚ୍ଚିତ୍ର ଦେଖିବାକୁ, ନୂତନ ସ୍ଥାନ ଭ୍ରମଣ କରିବାକୁ, ନୂତନ ଜିନିଷ ଶିଖିବାକୁ ଏବଂ ଫିଟନେସ୍ ତଥା ସ୍ୱାସ୍ଥ୍ୟ କାର୍ଯ୍ୟକଳାପରେ ସମୟ ବିତାଇବାକୁ ଭଲ ପାଏ | ମୁଁ ସଚ୍ଚୋଟ ଯୋଗାଯୋଗ, ପାରସ୍ପରିକ ସମ୍ମାନ ଏବଂ ବିଶ୍ୱାସ ତଥା ବୁଝାମଣା ଉପରେ ଆଧାରିତ ଏକାଠି ଜୀବନ ଗଠନ କରିବାରେ ବିଶ୍ୱାସ କରେ |",
         },
         hobbies: {
             title: "ରୁଚି ଏବଂ ସଉକ",
@@ -366,7 +367,8 @@ export const translations: Record<'en' | 'or', TranslationData> = {
                 "ପରିବାର ସହିତ ସମୟ ବିତାଇବା",
                 "ଚଳଚ୍ଚିତ୍ର ଦେଖିବା",
                 "ନୂତନ ସ୍ଥାନ ଭ୍ରମଣ କରିବା",
-                "ନୂତନ ଜ୍ଞାନକୌଶଳ ଶିଖିବା",
+                "ନୂତନ ଜିନିଷ ଶିଖିବା",
+                "ଫିଟନେସ୍ ଏବଂ ସ୍ୱାସ୍ଥ୍ୟ କାର୍ଯ୍ୟକଳାପ",
                 "ସଙ୍ଗୀତ ଶୁଣିବା",
                 "ପଢିବା",
                 "କେବେ କେବେ ରୋଷେଇ କରିବା",
@@ -393,9 +395,9 @@ export const translations: Record<'en' | 'or', TranslationData> = {
         },
         partner: {
             title: "ଜୀବନସାଥୀ ପସନ୍ଦ",
-            subtitle: "ପରିବାର, ସଚ୍ଚୋଟତା ଏବଂ ଏକତାକୁ ଗୁରୁତ୍ୱ ଦେଉଥିବା ଜଣଙ୍କୁ ଖୋଜୁଛୁ",
-            ageRange: "୨୧ - ୨୬ ବର୍ଷ",
-            height: "୫'୨\" - ୫'୭\"",
+            subtitle: "ଏକ ଦୟାଳୁ, ବୁଝିବା ଶକ୍ତି ଥିବା ଏବଂ ଭାବପ୍ରବଣତା ଦୃଷ୍ଟିରୁ ପରିପକ୍ୱ ଜୀବନସାଥୀ ସନ୍ଧାନରେ ଅଛୁ, ଯିଏ ପାରସ୍ପରିକ ସମ୍ମାନ, ସଚ୍ଚୋଟତା ଏବଂ ଦୀର୍ଘକାଳୀନ ପ୍ରତିବଦ୍ଧତାକୁ ଗୁରୁତ୍ୱ ଦିଅନ୍ତି | ଏପରି ଜଣେ ବ୍ୟକ୍ତି ଯିଏ ପାରିବାରିକ ଦାୟିତ୍ୱ ସହିତ ବ୍ୟକ୍ତିଗତ ଅଭିବୃଦ୍ଧିର ସନ୍ତୁଳନ ରକ୍ଷା କରିପାରିବେ ଏବଂ ଖୋଲାଖୋଲି ଯୋଗାଯୋଗ ତଥା ଏକତାରେ ବିଶ୍ୱାସ କରନ୍ତି | \n\nଜଣେ ଜୀବନସାଥୀ ଯିଏ ଏକ ସୁସ୍ଥ ଏବଂ ସକ୍ରିୟ ଜୀବନଶୈଳୀ ବଜାୟ ରଖିବାରେ ବିଶ୍ୱାସ କରନ୍ତି, ଫିଟନେସ୍, ସ୍ୱାସ୍ଥ୍ୟ ଏବଂ ସାମଗ୍ରିକ କଲ୍ୟାଣକୁ ଗୁରୁତ୍ୱ ଦିଅନ୍ତି, ସେମାନଙ୍କୁ ପ୍ରାଧାନ୍ୟ ଦିଆଯିବ | ଆମର ମୂଳ ଉଦ୍ଦେଶ୍ୟ ହେଉଛି ସମାନ ମୂଲ୍ୟବୋଧ ଏବଂ ବୁଝାମଣା ସହିତ ଏକ ସହାୟକ, ସମ୍ମାନଜନକ ଏବଂ ଆନନ୍ଦଦାୟକ ଯୁଗ୍ମ ଜୀବନ ଗଠନ କରିବା |",
+            ageRange: "୨୦ - ୨୫ ବର୍ଷ",
+            height: "୫'୦\" - ୫'୬\"",
             education: "ସ୍ନାତକ (Graduate) କିମ୍ବା ଅଧିକ",
             workingPreference: "କିଛି ଅସୁବିଧା ନାହିଁ",
             familyValues: "ମଧ୍ୟମ / ପାରମ୍ପାରିକ",

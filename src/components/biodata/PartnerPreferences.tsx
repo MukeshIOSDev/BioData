@@ -26,7 +26,7 @@ const PartnerPreferences = () => {
             <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-4">
               {t.partner.title}
             </h2>
-            <p className="text-muted-foreground max-w-xl mx-auto mb-4">
+            <p className="text-muted-foreground max-w-2xl mx-auto mb-4 whitespace-pre-line">
               {t.partner.subtitle}
             </p>
             <div className="w-24 h-1 bg-gradient-gold mx-auto rounded-full" />

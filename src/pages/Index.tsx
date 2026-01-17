@@ -70,9 +70,8 @@ const Index = () => {
         addressType: "Native Place",
       },
     ],
-    email: personalDetails.email,
     telephone: `+91${personalDetails.phone}`,
-    sameAs: [personalDetails.linkedIn],
+    sameAs: [personalDetails.linkedIn, personalDetails.instagram],
     birthDate: personalDetails.dateOfBirth,
     height: t.personalDetails.height,
     additionalProperty: [
@@ -138,7 +137,7 @@ const Index = () => {
 
         {/* Open Graph / Facebook */}
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://mukesh-biodata-2026.netlify.app/" />
+        <meta property="og:url" content="https://mukesh-biodata-2026.vercel.app/" />
         <meta property="og:title" content={t.seo.title} />
         <meta property="og:description" content={t.seo.description} />
         <meta property="og:image" content="/og-image.jpg" />
@@ -148,7 +147,7 @@ const Index = () => {
 
         {/* Twitter Card */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:url" content="https://mukesh-biodata-2026.netlify.app/" />
+        <meta name="twitter:url" content="https://mukesh-biodata-2026.vercel.app/" />
         <meta name="twitter:title" content={t.seo.title} />
         <meta name="twitter:description" content={t.seo.description} />
         <meta name="twitter:image" content="/og-image.jpg" />
@@ -188,7 +187,7 @@ const Index = () => {
           <Button
             variant="gold"
             size="lg"
-            onClick={generateBiodataPDF}
+            onClick={() => generateBiodataPDF(t)}
             className="shadow-elevated hover:shadow-gold/50 rounded-full px-6 py-6 flex items-center gap-2"
           >
             <Download className="w-5 h-5" />

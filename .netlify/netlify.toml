@@ -10,7 +10,7 @@ redirects = []
 publish = "/Users/mukeshbehera/Downloads/package/dist"
 publishOrigin = "ui"
 commandOrigin = "ui"
-command = "yarn run build"
+command = "npm run build"
 
 [build.environment]
 

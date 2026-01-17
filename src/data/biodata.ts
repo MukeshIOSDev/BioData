@@ -19,7 +19,7 @@ export const personalDetails = {
   annualSalary: "Confidential",
   linkedIn: "https://www.linkedin.com/in/mukesh-behera-8b6604178/",
   phone: "7016062806",
-  email: "mukesh.iosappdev@gmail.com",
+  instagram: "https://www.instagram.com/mukeshsbehera?igsh=MXMzejlnZnh2ZHY0cA%3D%3D&utm_source=qr",
   language: "Odia, Hindi, English, Gujarati",
 };
 
