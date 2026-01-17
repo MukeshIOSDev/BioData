@@ -13,7 +13,6 @@ export interface TranslationData {
         weightLabel: string;
         complexionLabel: string;
         bloodGroupLabel: string;
-        maritalStatusLabel: string;
         dietLabel: string;
         educationLabel: string;
         currentPositionLabel: string;
@@ -27,7 +26,6 @@ export interface TranslationData {
         phoneLabel: string;
         emailLabel: string;
         languages: string;
-        maritalStatus: string;
         diet: string;
     };
     about: {
@@ -164,7 +162,6 @@ export const translations: Record<'en' | 'or', TranslationData> = {
             weightLabel: "Weight",
             complexionLabel: "Complexion",
             bloodGroupLabel: "Blood Group",
-            maritalStatusLabel: "Marital Status",
             dietLabel: "Diet",
             educationLabel: "Education",
             currentPositionLabel: "Current Position",
@@ -178,12 +175,11 @@ export const translations: Record<'en' | 'or', TranslationData> = {
             education: "BTech – Computer Science",
             placeOfBirth: "Surat, Gujarat",
             languages: "Hindi, English, Odia, Gujarati",
-            maritalStatus: "Never Married",
             diet: "Vegetarian",
         },
         about: {
             title: "About Me",
-            content: "I am a simple, caring, and family-oriented person who believes in traditional values while embracing modern thinking. Born and raised with strong moral values, I respect elders and cherish family bonds deeply. I completed my BTech in Computer Science and am currently working as a Software Professional at Contractor Plus, which is based in Mumbai, Maharashtra. I am currently living in Surat, Gujarat, where I enjoy a fulfilling career that allows me to balance professional growth with family life. In my free time, I love spending quality time with family, watching movies, exploring new places, and learning new technologies. I believe in honest communication, mutual respect, and building a life together based on trust and understanding.",
+            content: "I am a simple, caring, and family-oriented person who believes in traditional values while embracing modern thinking. Born and raised with strong moral values, I respect elders and cherish family bonds deeply. I completed my BTech in Computer Science and am currently working as a Sr. Software Developer (Remote) at Contractor Plus, which is based in Mumbai, Maharashtra. I am currently living in Surat, Gujarat, where I enjoy a fulfilling career that allows me to balance professional growth with family life. In my free time, I love spending quality time with family, watching movies, exploring new places, and learning new technologies. I believe in honest communication, mutual respect, and building a life together based on trust and understanding.",
         },
         hobbies: {
             title: "Hobbies & Interests",
@@ -287,7 +283,7 @@ export const translations: Record<'en' | 'or', TranslationData> = {
                 },
             ],
             workDetails: {
-                currentRole: "Software Professional",
+                currentRole: "Sr. Software Developer (Remote)",
                 company: "Contractor Plus",
                 location: "Mumbai, Maharashtra",
                 experience: "5+ Years in IT Industry",
@@ -315,7 +311,7 @@ export const translations: Record<'en' | 'or', TranslationData> = {
         },
         seo: {
             title: "Mukesh Behera | Official Biodata",
-            description: "Official biodata of Mukesh Behera - Software Professional from Odisha, currently settled in Surat, Gujarat. Looking for a family-oriented life partner.",
+            description: "Official biodata of Mukesh Behera - Sr. Software Developer (Remote) from Odisha, currently settled in Surat, Gujarat. Looking for a family-oriented life partner.",
             keywords: "Mukesh Behera, Biodata, Marriage, Software Engineer, Odisha, Surat, Gujarat",
         },
         pdf: {
@@ -342,7 +338,6 @@ export const translations: Record<'en' | 'or', TranslationData> = {
             weightLabel: "ଓଜନ",
             complexionLabel: "ରଙ୍ଗ",
             bloodGroupLabel: "ରକ୍ତ ବର୍ଗ",
-            maritalStatusLabel: "ବୈବାହିକ ସ୍ଥିତି",
             dietLabel: "ଖାଦ୍ୟପେୟ",
             educationLabel: "ଶିକ୍ଷା",
             currentPositionLabel: "ବର୍ତ୍ତମାନର ପଦବୀ",
@@ -356,12 +351,11 @@ export const translations: Record<'en' | 'or', TranslationData> = {
             education: "ବି.ଟେକ୍ - କମ୍ପ୍ୟୁଟର ସାଇନ୍ସ",
             placeOfBirth: "ସୁରଟ, ଗୁଜୁରାଟ",
             languages: "ହିନ୍ଦୀ, ଇଂରାଜୀ, ଓଡ଼ିଆ, ଗୁଜୁରାଟୀ",
-            maritalStatus: "ଅବିବାହିତ",
             diet: "ଶାକାହାରୀ",
         },
         about: {
             title: "ମୋ ବିଷୟରେ",
-            content: "ମୁଁ ଜଣେ ସରଳ, ଯତ୍ନଶୀଳ ଏବଂ ପରିବାର ପ୍ରତି ସମର୍ପିତ ବ୍ୟକ୍ତି ଯିଏ ପାରମ୍ପରିକ ମୂଲ୍ୟବୋଧ ଏବଂ ଆଧୁନିକ ଚିନ୍ତାଧାରାରେ ବିଶ୍ୱାସ କରେ | ମୁଁ ମୋର ବି.ଟେକ୍ (BTech) କମ୍ପ୍ୟୁଟର ସାଇନ୍ସରେ ସମାପ୍ତ କରିଛି ଏବଂ ବର୍ତ୍ତମାନ ମୁମ୍ବାଇରେ ଥିବା କଣ୍ଟ୍ରାକ୍ଟର ପ୍ଲସ (Contractor Plus) କମ୍ପାନୀରେ ଜଣେ ସଫ୍ଟୱେର୍ ପ୍ରଫେସନାଲ୍ ଭାବରେ କାର୍ଯ୍ୟ କରୁଛି | ବର୍ତ୍ତମାନ ମୁଁ ସୁରଟ, ଗୁଜୁରାଟରେ ରହୁଛି | ମୋର ଖାଲି ସମୟରେ ମୁଁ ପରିବାର ସହିତ ସମୟ ବିତାଇବାକୁ, ଚଳଚ୍ଚିତ୍ର ଦେଖିବାକୁ ଏବଂ ନୂତନ ସ୍ଥାନ ଭ୍ରମଣ କରିବାକୁ ଭଲ ପାଏ |",
+            content: "ମୁଁ ଜଣେ ସରଳ, ଯତ୍ନଶୀଳ ଏବଂ ପରିବାର ପ୍ରତି ସମର୍ପିତ ବ୍ୟକ୍ତି ଯିଏ ପାରମ୍ପରିକ ମୂଲ୍ୟବୋଧ ଏବଂ ଆଧୁନିକ ଚିନ୍ତାଧାରାରେ ବିଶ୍ୱାସ କରେ | ମୁଁ ମୋର ବି.ଟେକ୍ (BTech) କମ୍ପ୍ୟୁଟର ସାଇନ୍ସରେ ସମାପ୍ତ କରିଛି ଏବଂ ବର୍ତ୍ତମାନ ମୁମ୍ବାଇରେ ଥିବା କଣ୍ଟ୍ରାକ୍ଟର ପ୍ଲସ (Contractor Plus) କମ୍ପାନୀରେ ଜଣେ ସିନିୟର ସଫ୍ଟୱେର୍ ଡେଭଲପର୍ (Sr. Software Developer - Remote) ଭାବରେ କାର୍ଯ୍ୟ କରୁଛି | ବର୍ତ୍ତମାନ ମୁଁ ସୁରଟ, ଗୁଜୁରାଟରେ ରହୁଛି | ମୋର ଖାଲି ସମୟରେ ମୁଁ ପରିବାର ସହିତ ସମୟ ବିତାଇବାକୁ, ଚଳଚ୍ଚିତ୍ର ଦେଖିବାକୁ ଏବଂ ନୂତନ ସ୍ଥାନ ଭ୍ରମଣ କରିବାକୁ ଭଲ ପାଏ |",
         },
         hobbies: {
             title: "ରୁଚି ଏବଂ ସଉକ",
@@ -465,7 +459,7 @@ export const translations: Record<'en' | 'or', TranslationData> = {
                 },
             ],
             workDetails: {
-                currentRole: "ସଫ୍ଟୱେର୍ ପ୍ରଫେସନାଲ୍",
+                currentRole: "ସିନିୟର ସଫ୍ଟୱେର୍ ଡେଭଲପର୍ (Sr. Software Developer - Remote)",
                 company: "କଣ୍ଟ୍ରାକ୍ଟର ପ୍ଲସ (Contractor Plus)",
                 location: "ମୁମ୍ବାଇ, ମହାରାଷ୍ଟ୍ର",
                 experience: "୫+ ବର୍ଷର ଆଇଟି ଅଭିଜ୍ଞତା",
@@ -493,7 +487,7 @@ export const translations: Record<'en' | 'or', TranslationData> = {
         },
         seo: {
             title: "ମୁକେଶ ବେହେରା | ଅଫିସିଆଲ୍ ବାୟୋଡାଟା",
-            description: "ମୁକେଶ ବେହେରାଙ୍କ ଅଫିସିଆଲ୍ ବାୟୋଡାଟା - ଓଡ଼ିଶାର ଜଣେ ସଫ୍ଟୱେର୍ ପ୍ରଫେସନାଲ୍, ବର୍ତ୍ତମାନ ସୁରଟ, ଗୁଜୁରାଟରେ ଅବସ୍ଥାପିତ | ଏକ ପରିବାର ପ୍ରତି ସମର୍ପିତ ଜୀବନ ସାଥୀ ସନ୍ଧାନରେ |",
+            description: "ମୁକେଶ ବେହେରାଙ୍କ ଅଫିସିଆଲ୍ ବାୟୋଡାଟା - ଓଡ଼ିଶାର ଜଣେ ସିନିୟର ସଫ୍ଟୱେର୍ ଡେଭଲପର୍ (Sr. Software Developer - Remote), ବର୍ତ୍ତମାନ ସୁରଟ, ଗୁଜୁରାଟରେ ଅବସ୍ଥାପିତ | ଏକ ପରିବାର ପ୍ରତି ସମର୍ପିତ ଜୀବନ ସାଥୀ ସନ୍ଧାନରେ |",
             keywords: "ମୁକେଶ ବେହେରା, ବାୟୋଡାଟା, ବିବାହ, ସଫ୍ଟୱେର୍ ଇଞ୍ଜିନିୟର, ଓଡ଼ିଶା, ସୁରଟ, ଗୁଜୁରାଟ",
         },
         pdf: {

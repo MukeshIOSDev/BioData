@@ -10,12 +10,11 @@ export const personalDetails = {
   gotra: "Kachchapa Gotra",
   height: "5 feet 8 inches",
   weight: "71 kg (Healthy)",
-  complexion: "Fair",
+  complexion: "Wheatish",
   bloodGroup: "B+",
-  maritalStatus: "Never Married",
   diet: "Vegetarian",
   education: "BTech – Computer Science",
-  currentPosition: "Software Professional",
+  currentPosition: "Sr. Software Developer (Remote)",
   company: "Contractor Plus",
   annualSalary: "Confidential",
   linkedIn: "https://www.linkedin.com/in/mukesh-behera-8b6604178/",
@@ -26,7 +25,7 @@ export const personalDetails = {
 
 export const aboutMe = `I am a simple, caring, and family-oriented person who believes in traditional values while embracing modern thinking. Born and raised with strong moral values, I respect elders and cherish family bonds deeply.
 
-I completed my BTech in Computer Science and am currently working as a Software Professional at Contractor Plus, which is based in Mumbai, Maharashtra. I am currently living in Surat, Gujarat, where I enjoy a fulfilling career that allows me to balance professional growth with family life.
+I completed my BTech in Computer Science and am currently working as a Sr. Software Developer (Remote) at Contractor Plus, which is based in Mumbai, Maharashtra. I am currently living in Surat, Gujarat, where I enjoy a fulfilling career that allows me to balance professional growth with family life.
 
 In my free time, I love spending quality time with family, watching movies, exploring new places, and learning new technologies. I believe in honest communication, mutual respect, and building a life together based on trust and understanding.
 
@@ -109,7 +108,7 @@ export const educationDetails = [
 ];
 
 export const workDetails = {
-  currentRole: "Software Professional",
+  currentRole: "Sr. Software Developer (Remote)",
   company: "Contractor Plus",
   location: "Mumbai, Maharashtra",
   experience: "5+ Years in IT Industry",

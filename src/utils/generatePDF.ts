@@ -101,7 +101,6 @@ export const generateBiodataPDF = () => {
     ["Weight", personalDetails.weight],
     ["Complexion", personalDetails.complexion],
     ["Blood Group", personalDetails.bloodGroup],
-    ["Marital Status", personalDetails.maritalStatus],
     ["Diet", personalDetails.diet],
     ["Languages", personalDetails.language],
   ];

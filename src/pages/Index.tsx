@@ -93,11 +93,6 @@ const Index = () => {
       },
       {
         "@type": "PropertyValue",
-        name: "Marital Status",
-        value: t.personalDetails.maritalStatus,
-      },
-      {
-        "@type": "PropertyValue",
         name: "Education",
         value: t.personalDetails.education,
       },
