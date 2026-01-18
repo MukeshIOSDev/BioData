@@ -219,7 +219,7 @@ export const translations: Record<'en' | 'or', TranslationData> = {
         },
         partner: {
             title: "Partner Preferences",
-            subtitle: "Looking for a kind, understanding, and emotionally mature partner who values mutual respect, honesty, and long-term commitment. Someone who can balance family responsibilities with personal growth and believes in open communication and togetherness.\n\nA partner who believes in maintaining a healthy and active lifestyle, values fitness, wellness, and overall well-being would be appreciated. The intent is to build a supportive, respectful, and happy life together with shared values and understanding.",
+            subtitle: "Looking for a kind, understanding, and emotionally mature partner who values mutual respect, honesty, and long-term commitment. Someone who can balance family responsibilities with personal growth and believes in open communication and togetherness.\n\nSomeone who has a positive approach toward health, wellness, and balanced living would be a good match. The goal is to grow together and create a respectful and happy life.",
             ageRange: "20 - 25 Years",
             height: "5'0\" - 5'6\"",
             education: "Graduate or above",
@@ -399,7 +399,7 @@ export const translations: Record<'en' | 'or', TranslationData> = {
         },
         partner: {
             title: "ଜୀବନସାଥୀ ପସନ୍ଦ",
-            subtitle: "ଏକ ଦୟାଳୁ, ବୁଝିବା ଶକ୍ତି ଥିବା ଏବଂ ଭାବପ୍ରବଣତା ଦୃଷ୍ଟିରୁ ପରିପକ୍ୱ ଜୀବନସାଥୀ ସନ୍ଧାନରେ ଅଛୁ, ଯିଏ ପାରସ୍ପରିକ ସମ୍ମାନ, ସଚ୍ଚୋଟତା ଏବଂ ଦୀର୍ଘକାଳୀନ ପ୍ରତିବଦ୍ଧତାକୁ ଗୁରୁତ୍ୱ ଦିଅନ୍ତି | ଏପରି ଜଣେ ବ୍ୟକ୍ତି ଯିଏ ପାରିବାରିକ ଦାୟିତ୍ୱ ସହିତ ବ୍ୟକ୍ତିଗତ ଅଭିବୃଦ୍ଧିର ସନ୍ତୁଳନ ରକ୍ଷା କରିପାରିବେ ଏବଂ ଖୋଲାଖୋଲି ଯୋଗାଯୋଗ ତଥା ଏକତାରେ ବିଶ୍ୱାସ କରନ୍ତି | \n\nଜଣେ ଜୀବନସାଥୀ ଯିଏ ଏକ ସୁସ୍ଥ ଏବଂ ସକ୍ରିୟ ଜୀବନଶୈଳୀ ବଜାୟ ରଖିବାରେ ବିଶ୍ୱାସ କରନ୍ତି, ଫିଟନେସ୍, ସ୍ୱାସ୍ଥ୍ୟ ଏବଂ ସାମଗ୍ରିକ କଲ୍ୟାଣକୁ ଗୁରୁତ୍ୱ ଦିଅନ୍ତି, ସେମାନଙ୍କୁ ପ୍ରାଧାନ୍ୟ ଦିଆଯିବ | ଆମର ମୂଳ ଉଦ୍ଦେଶ୍ୟ ହେଉଛି ସମାନ ମୂଲ୍ୟବୋଧ ଏବଂ ବୁଝାମଣା ସହିତ ଏକ ସହାୟକ, ସମ୍ମାନଜନକ ଏବଂ ଆନନ୍ଦଦାୟକ ଯୁଗ୍ମ ଜୀବନ ଗଠନ କରିବା |",
+            subtitle: "ଏକ ଦୟାଳୁ, ବୁଝିବା ଶକ୍ତି ଥିବା ଏବଂ ଭାବପ୍ରବଣତା ଦୃଷ୍ଟିରୁ ପରିପକ୍ୱ ଜୀବନସାଥୀ ସନ୍ଧାନରେ ଅଛୁ, ଯିଏ ପାରସ୍ପରିକ ସମ୍ମାନ, ସଚ୍ଚୋଟତା ଏବଂ ଦୀର୍ଘକାଳୀନ ପ୍ରତିବଦ୍ଧତାକୁ ଗୁରୁତ୍ୱ ଦିଅନ୍ତି | ଏପରି ଜଣେ ବ୍ୟକ୍ତି ଯିଏ ପାରିବାରିକ ଦାୟିତ୍ୱ ସହିତ ବ୍ୟକ୍ତିଗତ ଅଭିବୃଦ୍ଧିର ସନ୍ତୁଳନ ରକ୍ଷା କରିପାରିବେ ଏବଂ ଖୋଲାଖୋଲି ଯୋଗାଯୋଗ ତଥା ଏକତାରେ ବିଶ୍ୱାସ କରନ୍ତି | \n\nଜଣେ ଜୀବନସାଥୀ ଯାହାଙ୍କର ସ୍ୱାସ୍ଥ୍ୟ, କଲ୍ୟାଣ ଏବଂ ସନ୍ତୁଳିତ ଜୀବନ ପ୍ରତି ସକାରାତ୍ମକ ଦୃଷ୍ଟିକୋଣ ଅଛି, ସେ ଜଣେ ଭଲ ଜୀବନସାଥୀ ହେବେ | ଆମର ଲକ୍ଷ୍ୟ ହେଉଛି ଏକାଠି ବଢିବା ଏବଂ ଏକ ସମ୍ମାନଜନକ ଏବଂ ଆନନ୍ଦଦାୟକ ଜୀବନ ଗଠନ କରିବା |",
             ageRange: "୨୦ - ୨୫ ବର୍ଷ",
             height: "୫'୦\" - ୫'୬\"",
             education: "ସ୍ନାତକ (Graduate) କିମ୍ବା ଅଧିକ",
