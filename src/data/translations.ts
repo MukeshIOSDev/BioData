@@ -147,6 +147,14 @@ export interface TranslationData {
     };
 }
 
+import { calculateAge } from "./biodata";
+
+const computedAge = calculateAge("19-06-1999");
+const toOdiaDigits = (n: number) => {
+    const odiaDigits = ["୦", "୧", "୨", "୩", "୪", "୫", "୬", "୭", "୮", "୯"];
+    return n.toString().split("").map((d) => odiaDigits[parseInt(d, 10)] ?? d).join("");
+};
+
 export const translations: Record<'en' | 'or', TranslationData> = {
     en: {
         personalDetails: {
@@ -171,7 +179,7 @@ export const translations: Record<'en' | 'or', TranslationData> = {
             languageLabel: "Languages",
             phoneLabel: "Phone",
             instagramLabel: "Instagram",
-            age: "26 Years",
+            age: `${computedAge} Years`,
             height: "5 feet 8 inches",
             education: "BTech – Computer Science",
             placeOfBirth: "Surat, Gujarat",
@@ -225,7 +233,7 @@ export const translations: Record<'en' | 'or', TranslationData> = {
             education: "Graduate or above",
             workingPreference: "Working or Non-working",
             familyValues: "Moderate / Traditional",
-            location: "Odisha / Gujarat",
+            location: "Odisha or All Over India",
             labels: {
                 ageRange: "Age Range",
                 height: "Height",
@@ -351,7 +359,7 @@ export const translations: Record<'en' | 'or', TranslationData> = {
             languageLabel: "ଭାଷା",
             phoneLabel: "ଫୋନ୍",
             instagramLabel: "ଇନଷ୍ଟାଗ୍ରାମ (Instagram)",
-            age: "୨୬ ବର୍ଷ",
+            age: `${toOdiaDigits(computedAge)} ବର୍ଷ`,
             height: "୫ ଫୁଟ ୮ ଇଞ୍ଚ",
             education: "ବି.ଟେକ୍ - କମ୍ପ୍ୟୁଟର ସାଇନ୍ସ",
             placeOfBirth: "ସୁରଟ, ଗୁଜୁରାଟ",
@@ -405,7 +413,7 @@ export const translations: Record<'en' | 'or', TranslationData> = {
             education: "ସ୍ନାତକ (Graduate) କିମ୍ବା ଅଧିକ",
             workingPreference: "କିଛି ଅସୁବିଧା ନାହିଁ",
             familyValues: "ମଧ୍ୟମ / ପାରମ୍ପାରିକ",
-            location: "ଓଡ଼ିଶା / ଗୁଜୁରାଟ",
+            location: "ଓଡ଼ିଶା କିମ୍ବା ସମଗ୍ର ଭାରତ (All Over India)",
             labels: {
                 ageRange: "ବୟସ ସୀମା",
                 height: "ଉଚ୍ଚତା",

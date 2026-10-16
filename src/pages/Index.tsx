@@ -1,30 +1,49 @@
+import { useState, useEffect } from "react";
 import { Helmet } from "react-helmet-async";
 import Navigation from "@/components/biodata/Navigation";
 import HeroSection from "@/components/biodata/HeroSection";
 import PersonalDetails from "@/components/biodata/PersonalDetails";
-import AboutSection from "@/components/biodata/AboutSection";
-import PhotoGallery from "@/components/biodata/PhotoGallery";
-import FamilySection from "@/components/biodata/FamilySection";
 import EducationWorkSection from "@/components/biodata/EducationWorkSection";
+import FamilySection from "@/components/biodata/FamilySection";
+import AboutSection from "@/components/biodata/AboutSection";
 import PartnerPreferences from "@/components/biodata/PartnerPreferences";
 import AddressSection from "@/components/biodata/AddressSection";
 import ContactSection from "@/components/biodata/ContactSection";
 import Footer from "@/components/biodata/Footer";
 import {
   personalDetails,
-  familyDetails,
   addresses,
-  educationDetails,
-  workDetails,
 } from "@/data/biodata";
 import { Button } from "@/components/ui/button";
-import { Download } from "lucide-react";
+import { Download, MessageCircle, ArrowUp } from "lucide-react";
 import { generateBiodataPDF } from "@/utils/generatePDF";
-
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const Index = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
+  const [showScrollTop, setShowScrollTop] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setShowScrollTop(window.scrollY > 400);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  const handleWhatsApp = () => {
+    window.open(
+      `https://wa.me/91${personalDetails.phone}?text=${encodeURIComponent(
+        t.contact.whatsappMessage
+      )}`,
+      "_blank"
+    );
+  };
+
   const siteUrl =
     typeof window !== "undefined"
       ? window.location.origin
@@ -173,25 +192,52 @@ const Index = () => {
         <Navigation />
         <HeroSection />
         <PersonalDetails />
-        <AboutSection />
-        <PhotoGallery />
-        <FamilySection />
         <EducationWorkSection />
+        <FamilySection />
+        <AboutSection />
         <PartnerPreferences />
         <AddressSection />
         <ContactSection />
         <Footer />
 
-        {/* Fixed Download Button */}
-        <div className="fixed bottom-8 right-8 z-50">
+        {/* Floating Action Controls */}
+        {/* 1. Floating WhatsApp (Bottom Left) */}
+        <div className="fixed bottom-6 left-6 z-40 hidden sm:block">
+          <Button
+            variant="default"
+            size="lg"
+            onClick={handleWhatsApp}
+            className="rounded-full px-5 py-6 bg-emerald-600 hover:bg-emerald-700 text-white shadow-elevated flex items-center gap-2 hover:scale-105 transition-all"
+            aria-label="Chat on WhatsApp"
+          >
+            <MessageCircle className="w-5 h-5 fill-white/20" />
+            <span className="font-semibold text-sm">WhatsApp</span>
+          </Button>
+        </div>
+
+        {/* 2. Floating Download PDF & Scroll-To-Top (Bottom Right) */}
+        <div className="fixed bottom-6 right-6 z-40 flex items-center gap-3">
+          {showScrollTop && (
+            <Button
+              variant="outline"
+              size="icon"
+              onClick={scrollToTop}
+              className="w-12 h-12 rounded-full bg-card/90 backdrop-blur-md border-gold/30 shadow-card hover:bg-gold hover:text-card transition-all"
+              aria-label="Scroll to top"
+            >
+              <ArrowUp className="w-5 h-5" />
+            </Button>
+          )}
+
           <Button
             variant="gold"
             size="lg"
             onClick={() => generateBiodataPDF(t)}
-            className="shadow-elevated hover:shadow-gold/50 rounded-full px-6 py-6 flex items-center gap-2"
+            className="shadow-elevated hover:shadow-gold/60 rounded-full px-5 sm:px-6 py-6 flex items-center gap-2.5 font-semibold text-sm hover:scale-105 transition-all"
           >
             <Download className="w-5 h-5" />
             <span className="hidden sm:inline">{t.pdf.download}</span>
+            <span className="sm:hidden">PDF</span>
           </Button>
         </div>
       </main>

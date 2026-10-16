@@ -1,8 +1,32 @@
+export const calculateAge = (dobString: string = "19-06-1999"): number => {
+  const parts = dobString.split("-");
+  let birthDate: Date;
+  if (parts.length === 3) {
+    if (parts[0].length === 4) {
+      // YYYY-MM-DD
+      birthDate = new Date(parseInt(parts[0], 10), parseInt(parts[1], 10) - 1, parseInt(parts[2], 10));
+    } else {
+      // DD-MM-YYYY
+      birthDate = new Date(parseInt(parts[2], 10), parseInt(parts[1], 10) - 1, parseInt(parts[0], 10));
+    }
+  } else {
+    birthDate = new Date(dobString);
+  }
+
+  const today = new Date();
+  let age = today.getFullYear() - birthDate.getFullYear();
+  const m = today.getMonth() - birthDate.getMonth();
+  if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+    age--;
+  }
+  return age;
+};
+
 export const personalDetails = {
   name: "Mukesh Behera",
   tagline: "Looking for a Life Partner | Family-Oriented | Caring & Supportive",
   dateOfBirth: "19-06-1999",
-  age: "26 Years",
+  age: `${calculateAge("19-06-1999")} Years`,
   timeOfBirth: "3:52 AM",
   placeOfBirth: "Surat, Gujarat",
   rashi: "Leo",
@@ -47,7 +71,7 @@ export const partnerPreferences = {
   education: "Graduate or above",
   workingPreference: "Working or Non-working",
   familyValues: "Family-oriented with traditional values",
-  location: "Preferably from Gujarat or Odisha",
+  location: "Odisha or All Over India",
 };
 
 export const familyDetails = [

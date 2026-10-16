@@ -1,37 +1,44 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { personalDetails } from "@/data/biodata";
-import { Menu, X, Heart } from "lucide-react";
-
-const navLinks = [
-  { label: "About", href: "#personal" },
-  { label: "Gallery", href: "#gallery" },
-  { label: "Family", href: "#family" },
-  { label: "Contact", href: "#contact" },
-];
-
+import { Menu, X, Heart, Phone, Sparkles } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import LanguageSwitcher from "./LanguageSwitcher";
 
 const Navigation = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState("");
 
   const navLinks = [
-    { label: t.navigation.about, href: "#personal" },
-    { label: t.navigation.gallery, href: "#gallery" },
+    { label: language === "or" ? "ବ୍ୟକ୍ତିଗତ" : "Profile", href: "#personal" },
+    { label: language === "or" ? "କ୍ୟାରିୟର ଓ ଶିକ୍ଷା" : "Career & Education", href: "#career" },
     { label: t.navigation.family, href: "#family" },
+    { label: t.navigation.about, href: "#about" },
+    { label: language === "or" ? "ସାଥୀ ପସନ୍ଦ" : "Preferences", href: "#preferences" },
+    { label: language === "or" ? "ଠିକଣା" : "Address", href: "#address" },
+    { label: t.navigation.contact, href: "#contact" },
   ];
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
+      setIsScrolled(window.scrollY > 40);
+
+      const sections = navLinks.map((l) => l.href.substring(1));
+      const scrollPos = window.scrollY + 200;
+
+      for (let i = sections.length - 1; i >= 0; i--) {
+        const el = document.getElementById(sections[i]);
+        if (el && el.offsetTop <= scrollPos) {
+          setActiveSection(sections[i]);
+          break;
+        }
+      }
     };
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [navLinks]);
 
   const scrollToSection = (href: string) => {
     const element = document.querySelector(href);
@@ -41,49 +48,75 @@ const Navigation = () => {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled
-        ? "bg-card/95 backdrop-blur-md shadow-soft border-b border-gold/10"
-        : "bg-transparent"
-        }`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        isScrolled
+          ? "bg-card/90 backdrop-blur-md shadow-soft border-b border-gold/20 py-2.5"
+          : "bg-background/60 backdrop-blur-sm py-4 border-b border-gold/10"
+      }`}
     >
-      <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-16 md:h-20">
+      <div className="container mx-auto px-4 max-w-6xl">
+        <div className="flex items-center justify-between">
           {/* Logo */}
           <a
-            href="#"
-            className="flex items-center gap-2 font-display text-xl md:text-2xl font-bold text-foreground hover:text-gold transition-colors"
+            href="#top"
+            className="flex items-center gap-2.5 group"
             onClick={(e) => {
               e.preventDefault();
               window.scrollTo({ top: 0, behavior: "smooth" });
             }}
           >
-            <Heart className="w-5 h-5 text-gold fill-gold" />
-            {t.personalDetails.name.split(" ")[0]}
+            <div className="w-9 h-9 rounded-full bg-gold/15 border border-gold/30 flex items-center justify-center group-hover:bg-gold/25 transition-all">
+              <Sparkles className="w-4 h-4 text-gold fill-gold/20" />
+            </div>
+            <div>
+              <span className="font-display text-lg md:text-xl font-bold text-foreground group-hover:text-gold transition-colors block leading-tight">
+                {t.personalDetails.name}
+              </span>
+              <span className="text-[10px] tracking-widest uppercase text-muted-foreground block font-medium">
+                {language === "or" ? "ବିବାହ ବାୟୋଡାଟା" : "Marriage Biodata"}
+              </span>
+            </div>
           </a>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-8">
-            {navLinks.map((link) => (
-              <button
-                key={link.href}
-                onClick={() => scrollToSection(link.href)}
-                className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors relative group"
-              >
-                {link.label}
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gold transition-all duration-300 group-hover:w-full" />
-              </button>
-            ))}
+          <div className="hidden lg:flex items-center gap-1 xl:gap-2">
+            {navLinks.map((link) => {
+              const isActive = activeSection === link.href.substring(1);
+              return (
+                <button
+                  key={link.href}
+                  onClick={() => scrollToSection(link.href)}
+                  className={`px-3 py-1.5 rounded-full text-xs xl:text-sm font-medium transition-all duration-200 relative ${
+                    isActive
+                      ? "text-gold font-semibold bg-gold/10"
+                      : "text-muted-foreground hover:text-foreground hover:bg-gold/5"
+                  }`}
+                >
+                  {link.label}
+                </button>
+              );
+            })}
+          </div>
+
+          {/* Desktop Right Actions */}
+          <div className="hidden md:flex items-center gap-3">
             <LanguageSwitcher />
-            <Button variant="gold" size="sm" onClick={() => scrollToSection("#contact")}>
-              {t.navigation.contact}
+            <Button
+              variant="gold"
+              size="sm"
+              onClick={() => scrollToSection("#contact")}
+              className="gap-1.5 rounded-full px-4 shadow-sm"
+            >
+              <Phone className="w-3.5 h-3.5" />
+              <span>{t.navigation.contact}</span>
             </Button>
           </div>
 
-          {/* Mobile Menu Button */}
-          <div className="flex items-center gap-4 md:hidden">
+          {/* Mobile Right Controls */}
+          <div className="flex items-center gap-2 lg:hidden">
             <LanguageSwitcher />
             <button
-              className="p-2 text-foreground"
+              className="p-2 text-foreground rounded-lg hover:bg-gold/10 transition-colors"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               aria-label="Toggle menu"
             >
@@ -92,21 +125,34 @@ const Navigation = () => {
           </div>
         </div>
 
-        {/* Mobile Navigation */}
+        {/* Mobile Navigation Drawer */}
         {isMobileMenuOpen && (
-          <div className="md:hidden bg-card border-t border-gold/10 py-4 animate-fade-in">
-            <div className="flex flex-col gap-2">
-              {navLinks.map((link) => (
-                <button
-                  key={link.href}
-                  onClick={() => scrollToSection(link.href)}
-                  className="px-4 py-3 text-left text-foreground hover:bg-gold/5 rounded-lg transition-colors"
+          <div className="lg:hidden mt-3 bg-card/95 backdrop-blur-xl border border-gold/20 rounded-2xl p-4 shadow-elevated animate-fade-in">
+            <div className="flex flex-col gap-1">
+              {navLinks.map((link) => {
+                const isActive = activeSection === link.href.substring(1);
+                return (
+                  <button
+                    key={link.href}
+                    onClick={() => scrollToSection(link.href)}
+                    className={`px-4 py-2.5 text-left rounded-xl text-sm font-medium transition-colors flex items-center justify-between ${
+                      isActive
+                        ? "bg-gold/15 text-gold font-semibold"
+                        : "text-foreground hover:bg-gold/5"
+                    }`}
+                  >
+                    <span>{link.label}</span>
+                    {isActive && <span className="w-1.5 h-1.5 rounded-full bg-gold" />}
+                  </button>
+                );
+              })}
+              <div className="pt-3 border-t border-gold/15 mt-2">
+                <Button
+                  variant="gold"
+                  className="w-full gap-2 rounded-xl"
+                  onClick={() => scrollToSection("#contact")}
                 >
-                  {link.label}
-                </button>
-              ))}
-              <div className="px-4 pt-2">
-                <Button variant="gold" className="w-full" onClick={() => scrollToSection("#contact")}>
+                  <Phone className="w-4 h-4" />
                   {t.navigation.contact}
                 </Button>
               </div>
